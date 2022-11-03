@@ -93,17 +93,17 @@ public class Solution {
         StringTokenizer st;
 
         // 标准 IO
-        public Kattio() {
+        Kattio() {
             this(System.in, System.out);
         }
 
-        public Kattio(InputStream i, OutputStream o) {
+        Kattio(InputStream i, OutputStream o) {
             super(o);
             r = new BufferedReader(new InputStreamReader(i));
         }
 
         // 文件 IO
-        public Kattio(String input, String output) throws IOException {
+        Kattio(String input, String output) throws IOException {
             super(output);
             r = new BufferedReader(new FileReader(input));
         }
@@ -111,10 +111,11 @@ public class Solution {
         // 在没有其他输入时返回 null
         public String next() {
             try {
-                while (st == null || !st.hasMoreTokens())
+                while (st == null || !st.hasMoreTokens()) {
                     st = new StringTokenizer(r.readLine());
+                }
                 return st.nextToken();
-            } catch (Exception e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             return null;
